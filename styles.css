@@ -142,21 +142,41 @@ header h1 {
 }
 
 .navigation {
-    display: flex;
-    justify-content: space-between;
     position: absolute;
     top: 50%;
     width: 100%;
     pointer-events: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
 }
 
 .navigation button {
-    background-color: #FFD700;
+    background-color: #FFA500;
     border: none;
     padding: 10px;
     cursor: pointer;
-    border-radius: 20px;
+    border-radius: 10px;
     pointer-events: all;
+    font-size: 24px;
+    color: white;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.navigation button:hover {
+    background-color: #FFCC80;
+}
+
+.prev {
+    position: absolute;
+    left: 10px;
+}
+
+.next {
+    position: absolute;
+    right: 10px;
 }
 
 footer {
@@ -182,7 +202,7 @@ footer {
 
     .character-image {
         width: 100%;
-        height: 60vh;
+        height: 50vh;
         background-position: center center;
         margin-top: 70px;
     }

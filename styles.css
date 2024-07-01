@@ -1,7 +1,8 @@
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    font-family: 'Arial', sans-serif;
+    color: black;
     background: radial-gradient(
         circle at center,
         #FFFFFF 0%,
@@ -23,58 +24,68 @@ body {
     background-attachment: fixed;
 }
 
-header, footer {
-    background-color: rgba(255, 153, 51, 0.8);
-    color: #FFF;
-    text-align: center;
-    padding: 1rem;
+.carousel {
+    display: flex;
+    height: 100vh;
 }
 
-main {
-    min-height: calc(100vh - 140px);
+.character-image {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+}
+
+.character-info {
+    flex: 1;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.header {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.name {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.description {
+    font-size: 18px;
+    color: black;
+}
+
+.navigation {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    font-size: 24px;
+    margin: 0 10px;
+    padding: 10px 20px;
+    background: rgba(255, 153, 0, 0.6);
+    border: none;
+    color: black;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.carousel-container {
-    position: relative;
-    width: 90%;
-    max-width: 600px;
-    overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-}
-
-.carousel {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.carousel-item {
-    flex: 0 0 100%;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-.nav-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(19, 136, 8, 0.8);
-    color: #FFF;
-    border: none;
-    font-size: 2rem;
-    padding: 10px 15px;
-    cursor: pointer;
-    z-index: 10;
-}
-
-.nav-button.prev {
-    left: 10px;
-}
-
-.nav-button.next {
-    right: 10px;
+button:hover {
+    background: rgba(255, 153, 0, 0.8);
 }

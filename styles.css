@@ -127,6 +127,7 @@ footer {
     height: 100px;
     background-color: #FFD700;
     border-radius: 50%;
+    position: relative;
 }
 
 .sun-rays {
@@ -145,7 +146,7 @@ footer {
     left: 0;
     right: 0;
     bottom: 0;
-    background: conic-gradient(from 0deg, transparent 0deg 45deg, gold 45deg 90deg, transparent 90deg 360deg);
+    background: conic-gradient(from 0deg, #FFD700 0deg, #FFD700 10deg, transparent 10deg, transparent 20deg, #FFD700 20deg, #FFD700 30deg, transparent 30deg, transparent 40deg, #FFD700 40deg, #FFD700 50deg, transparent 50deg, transparent 60deg, #FFD700 60deg, #FFD700 70deg, transparent 70deg, transparent 80deg, #FFD700 80deg, #FFD700 90deg, transparent 90deg, transparent 100deg, #FFD700 100deg, #FFD700 110deg, transparent 110deg, transparent 120deg, #FFD700 120deg, #FFD700 130deg, transparent 130deg, transparent 140deg, #FFD700 140deg, #FFD700 150deg, transparent 150deg, transparent 160deg, #FFD700 160deg, #FFD700 170deg, transparent 170deg, transparent 180deg, #FFD700 180deg, #FFD700 190deg, transparent 190deg, transparent 200deg, #FFD700 200deg, #FFD700 210deg, transparent 210deg, transparent 220deg, #FFD700 220deg, #FFD700 230deg, transparent 230deg, transparent 240deg, #FFD700 240deg, #FFD700 250deg, transparent 250deg, transparent 260deg, #FFD700 260deg, #FFD700 270deg, transparent 270deg, transparent 280deg, #FFD700 280deg, #FFD700 290deg, transparent 290deg, transparent 300deg, #FFD700 300deg, #FFD700 310deg, transparent 310deg, transparent 320deg, #FFD700 320deg, #FFD700 330deg, transparent 330deg, transparent 340deg, #FFD700 340deg, #FFD700 350deg, transparent 350deg, transparent 360deg);
     border-radius: 50%;
     animation: rotate 10s linear infinite;
 }

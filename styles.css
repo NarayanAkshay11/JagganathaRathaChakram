@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     color: black;
     background: radial-gradient(
         circle at center,
@@ -24,41 +24,55 @@ body {
     background-attachment: fixed;
 }
 
+header {
+    background-color: #FFD700;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header-image {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    margin: 0 20px;
+}
+
 .carousel {
     display: flex;
-    height: 100vh;
+    height: calc(100vh - 120px);
+    margin-top: 70px;
 }
 
 .character-image {
-    flex: 1;
+    flex: 1.2;
     background-size: cover;
-    background-position: center;
+    background-position: center right;
+    transform: scale(1.2);
 }
 
 .character-info {
-    flex: 1;
-    padding: 50px;
+    flex: 0.8;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: rgba(255, 255, 255, 0.7);
-}
-
-.header {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: black;
+    align-items: center;
+    text-align: center;
+    padding: 0 50px;
 }
 
 .name {
     font-size: 48px;
     margin-bottom: 20px;
-    color: black;
 }
 
 .description {
     font-size: 18px;
-    color: black;
 }
 
 .navigation {
@@ -68,6 +82,7 @@ body {
     right: 0;
     display: flex;
     justify-content: center;
+    z-index: 1000;
 }
 
 button {
@@ -88,4 +103,58 @@ button {
 
 button:hover {
     background: rgba(255, 153, 0, 0.8);
+}
+
+footer {
+    background-color: rgba(255, 215, 0, 0.8);
+    color: black;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.sun-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sun {
+    width: 100px;
+    height: 100px;
+    background-color: #FFD700;
+    border-radius: 50%;
+}
+
+.sun-rays {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    transform: translate(-50%, -50%);
+}
+
+.sun-rays::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: conic-gradient(from 0deg, transparent 0deg 45deg, gold 45deg 90deg, transparent 90deg 360deg);
+    border-radius: 50%;
+    animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }

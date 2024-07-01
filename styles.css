@@ -4,27 +4,41 @@
     --secondary-color: #138808;
     --accent-color: #000080;
     --text-color: #333;
-    --background-color: #E6B800;
+    --background-color: #FFA500;
 }
 
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--background-color);
     color: var(--text-color);
-    background-image: url('krishna-chariot-silhouette.png'); /* You'll need to create or find this image */
-    background-size: cover;
-    background-position: center;
+    background: radial-gradient(
+        circle at center,
+        #FFFFFF 0%,
+        #FFFFFF 14.28%,
+        #FFF5E6 14.28%,
+        #FFF5E6 28.57%,
+        #FFEBCC 28.57%,
+        #FFEBCC 42.85%,
+        #FFE0B3 42.85%,
+        #FFE0B3 57.14%,
+        #FFD699 57.14%,
+        #FFD699 71.42%,
+        #FFCC80 71.42%,
+        #FFCC80 85.71%,
+        #FFA500 85.71%,
+        #FFA500 100%
+    );
+    background-size: 100% 100%;
     background-attachment: fixed;
 }
 
 header, footer {
-    background-color: rgba(255, 153, 51, 0.8); /* Semi-transparent saffron */
+    background-color: rgba(255, 153, 51, 0.8);
     color: #FFF;
     text-align: center;
     padding: 1rem;
-    font-family: 'Devanagari', serif; /* Use a Devanagari font for headers */
+    font-family: 'Tiro Devanagari Sanskrit', serif;
 }
 
 main {
@@ -85,7 +99,7 @@ main {
 }
 
 .carousel-content h2 {
-    font-family: 'Devanagari', serif;
+    font-family: 'Tiro Devanagari Sanskrit', serif;
     color: #FF9933;
     margin-bottom: 0.5rem;
 }
@@ -99,7 +113,7 @@ main {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(19, 136, 8, 0.8); /* Semi-transparent green */
+    background-color: rgba(19, 136, 8, 0.8);
     color: #FFF;
     border: none;
     font-size: 2rem;

@@ -108,3 +108,95 @@ header h1 {
     width: 100%;
     margin-top: 70px;
 }
+
+.carousel {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    margin-top: 10px;
+    position: relative;
+    z-index: 1; /* Place above header and footer */
+    overflow-x: hidden;
+    scroll-snap-type: x mandatory;
+    justify-content: center;
+    align-items: center;
+}
+
+.character-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 50px;
+    scroll-snap-align: start;
+}
+
+.name {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.description {
+    font-size: 18px;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    pointer-events: none;
+}
+
+.navigation button {
+    background-color: #FFD700;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 20px;
+    pointer-events: all;
+}
+
+footer {
+    background-color: rgba(255, 215, 0, 0.8);
+    color: black;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    position: relative;
+    z-index: 1; /* Place above background */
+}
+
+@media (min-width: 768px) {
+    .carousel {
+        flex-direction: row;
+    }
+}
+
+@media (max-width: 767px) {
+    .carousel {
+        flex-direction: column;
+    }
+
+    .character-image {
+        width: 100%;
+        height: 60vh;
+        background-position: center center;
+        margin-top: 70px;
+    }
+
+    .character-info {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .name {
+        font-size: 36px;
+    }
+
+    .description {
+        font-size: 16px;
+    }
+}

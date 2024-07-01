@@ -1,46 +1,34 @@
-$(document).ready(function() {
-    let currentIndex = 0;
-    const apiUrl = 'https://jsonplaceholder.typicode.com/posts';
+let characters = [];
+let currentIndex = 0;
 
-    function fetchData() {
-        $.getJSON(apiUrl, function(data) {
-            createCarousel(data.slice(0, 5)); // Get first 5 items
-        }).fail(function(jqXHR, textStatus, errorThrown) {
-            console.error('Error fetching data:', textStatus, errorThrown);
-        });
-    }
-
-    function createCarousel(data) {
-        const carousel = $('.carousel');
-        carousel.empty();
-
-        data.forEach((item) => {
-            const carouselItem = $('<div>').addClass('carousel-item');
-            const title = $('<h2>').text(item.title);
-            const body = $('<p>').text(item.body);
-
-            carouselItem.append(title, body);
-            carousel.append(carouselItem);
-        });
-
-        updateCarousel();
-    }
-
-    function updateCarousel() {
-        const items = $('.carousel-item');
-        const translateX = -currentIndex * 100;
-        $('.carousel').css('transform', `translateX(${translateX}%)`);
-    }
-
-    $('.nav-button.prev').click(function() {
-        currentIndex = (currentIndex - 1 + $('.carousel-item').length) % $('.carousel-item').length;
+fetch('characters.md')
+    .then(response => response.text())
+    .then(data => {
+        characters = parseMarkdownTable(data);
         updateCarousel();
     });
 
-    $('.nav-button.next').click(function() {
-        currentIndex = (currentIndex + 1) % $('.carousel-item').length;
-        updateCarousel();
+function parseMarkdownTable(markdown) {
+    const lines = markdown.split('\n').slice(2); // Skip header rows
+    return lines.map(line => {
+        const [name, image, description] = line.split('|').slice(1, -1).map(cell => cell.trim());
+        return { name, image, description };
     });
+}
 
-    fetchData();
+function updateCarousel() {
+    const character = characters[currentIndex];
+    document.querySelector('.character-image').style.backgroundImage = `url(${character.image})`;
+    document.querySelector('.name').textContent = character.name;
+    document.querySelector('.description').textContent = character.description;
+}
+
+document.querySelector('.prev').addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + characters.length) % characters.length;
+    updateCarousel();
+});
+
+document.querySelector('.next').addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % characters.length;
+    updateCarousel();
 });

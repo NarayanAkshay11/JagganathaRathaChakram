@@ -50,67 +50,22 @@ header h1 {
     color: #333;
 }
 
-.character-image {
-    background-size: cover;
-    background-position: center;
-    transform: scale(1.2);
-    height: 60vh;
-    width: 100%;
-    margin-top: 70px;
-}
-
-.carousel {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-    position: relative;
-    z-index: 999; /* Place above header and footer */
-    overflow-x: hidden;
-    scroll-snap-type: x mandatory;
-}
-
-.character-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 50px;
-    scroll-snap-align: start;
-}
-
-.name {
-    font-size: 48px;
-    margin-bottom: 20px;
-}
-
-.description {
-    font-size: 18px;
-}
-
-.navigation {
-    display: none;
-}
-
-footer {
-    background-color: rgba(255, 215, 0, 0.8);
-    color: black;
-    text-align: center;
-    padding: 10px 0;
-    position: relative;
-    width: 100%;
-}
-
 .sun-container {
     position: absolute;
-    top: 50%;
+    top: 0;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
 }
 
 .sun {
-    width: 100px;
-    height: 100px;
+    width: 300px;
+    height: 300px;
     background-color: #FFD700;
     border-radius: 50%;
     position: relative;
@@ -120,8 +75,8 @@ footer {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 200px;
-    height: 200px;
+    width: 600px;
+    height: 600px;
     transform: translate(-50%, -50%);
 }
 
@@ -146,34 +101,10 @@ footer {
     }
 }
 
-@media (min-width: 768px) {
-    .carousel {
-        flex-direction: row;
-    }
-}
-
-@media (max-width: 767px) {
-    .carousel {
-        flex-direction: column;
-    }
-
-    .character-image {
-        width: 100%;
-        height: 60vh;
-        background-position: center center;
-        margin-top: 70px;
-    }
-
-    .character-info {
-        width: 100%;
-        padding: 20px;
-    }
-
-    .name {
-        font-size: 36px;
-    }
-
-    .description {
-        font-size: 16px;
-    }
+.character-image {
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    width: 100%;
+    margin-top: 70px;
 }

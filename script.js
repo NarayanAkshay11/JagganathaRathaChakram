@@ -23,19 +23,15 @@ function updateCarousel() {
     document.querySelector('.description').textContent = character.description;
 }
 
-document.addEventListener('touchstart', handleTouchStart, false);
-document.addEventListener('touchmove', handleTouchMove, false);
+document.querySelector('.prev').addEventListener('click', showPreviousCharacter);
+document.querySelector('.next').addEventListener('click', showNextCharacter);
 
-let xDown = null;                                                        
-let yDown = null;
+function showPreviousCharacter() {
+    currentIndex = (currentIndex - 1 + characters.length) % characters.length;
+    updateCarousel();
+}
 
-function getTouches(evt) {
-  return evt.touches ||             // browser API
-         evt.originalEvent.touches; // jQuery
-}                                                     
-
-function handleTouchStart(evt) {
-    const firstTouch = getTouches(evt)[0];                                      
-    xDown = firstTouch.clientX;                                      
-    yDown = firstTouch.clientY;                                      
-};
+function showNextCharacter() {
+    currentIndex = (currentIndex + 1) % characters.length;
+    updateCarousel();
+}

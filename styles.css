@@ -1,0 +1,101 @@
+/* styles.css */
+:root {
+    --primary-color: #FF9933;
+    --secondary-color: #138808;
+    --accent-color: #000080;
+    --text-color: #333;
+    --background-color: #FFF;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+header, footer {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    text-align: center;
+    padding: 1rem;
+}
+
+main {
+    min-height: calc(100vh - 140px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    flex: 0 0 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item.active img {
+    transform: translateX(-20%);
+}
+
+.carousel-content {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 1rem;
+    border-radius: 5px;
+    max-width: 40%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-item.active .carousel-content {
+    opacity: 1;
+}
+
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--secondary-color);
+    color: var(--background-color);
+    border: none;
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.nav-button.prev {
+    left: 1rem;
+}
+
+.nav-button.next {
+    right: 1rem;
+}
+
+@media (max-width: 768px) {
+    .carousel-content {
+        max-width: 80%;
+        right: 10%;
+    }
+}

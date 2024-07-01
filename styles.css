@@ -1,17 +1,7 @@
-/* styles.css */
-:root {
-    --primary-color: #FF9933;
-    --secondary-color: #138808;
-    --accent-color: #000080;
-    --text-color: #333;
-    --background-color: #FFA500;
-}
-
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    color: var(--text-color);
     background: radial-gradient(
         circle at center,
         #FFFFFF 0%,
@@ -38,7 +28,6 @@ header, footer {
     color: #FFF;
     text-align: center;
     padding: 1rem;
-    font-family: 'Tiro Devanagari Sanskrit', serif;
 }
 
 main {
@@ -51,7 +40,7 @@ main {
 .carousel-container {
     position: relative;
     width: 90%;
-    max-width: 1000px;
+    max-width: 600px;
     overflow: hidden;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
@@ -65,48 +54,8 @@ main {
 
 .carousel-item {
     flex: 0 0 100%;
-    position: relative;
-    overflow: hidden;
-}
-
-.carousel-item img {
-    width: 100%;
-    height: auto;
-    transition: transform 0.5s ease-in-out;
-}
-
-.carousel-item.active img {
-    transform: translateX(-20%);
-}
-
-.carousel-content {
-    position: absolute;
-    top: 50%;
-    right: 5%;
-    transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 1rem;
-    border-radius: 5px;
-    max-width: 40%;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    border: 2px solid #FF9933;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-.carousel-item.active .carousel-content {
-    opacity: 1;
-}
-
-.carousel-content h2 {
-    font-family: 'Tiro Devanagari Sanskrit', serif;
-    color: #FF9933;
-    margin-bottom: 0.5rem;
-}
-
-.carousel-content p {
-    font-family: 'Arial', sans-serif;
-    color: #333;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .nav-button {
@@ -117,32 +66,15 @@ main {
     color: #FFF;
     border: none;
     font-size: 2rem;
-    padding: 0.5rem 1rem;
+    padding: 10px 15px;
     cursor: pointer;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease;
-}
-
-.nav-button:hover {
-    background-color: rgba(19, 136, 8, 1);
+    z-index: 10;
 }
 
 .nav-button.prev {
-    left: 1rem;
+    left: 10px;
 }
 
 .nav-button.next {
-    right: 1rem;
-}
-
-@media (max-width: 768px) {
-    .carousel-content {
-        max-width: 80%;
-        right: 10%;
-    }
+    right: 10px;
 }

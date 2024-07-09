@@ -2,37 +2,12 @@ body {
     font-family: 'Playfair Display', serif;
     margin: 0;
     padding: 0;
-    background-image: url('hindu_background.jpg');
-    background-size: cover;
-    background-attachment: fixed;
     color: #333;
+    background: radial-gradient(circle at center, #FFD700, #FFA500, #FF8C00, #FF7F50, #FF6347);
+    background-attachment: fixed;
 }
 
-header {
-    background-color: rgba(255, 165, 0, 0.8);
-    padding: 10px 0;
-    text-align: center;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-header h1 {
-    margin: 0;
-    color: #8B0000;
-    font-size: 2.5em;
-    flex-grow: 1;
-}
-
-.header-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 20px;
-}
+/* ... (keep the existing header styles) ... */
 
 .sun-animation {
     position: fixed;
@@ -55,7 +30,7 @@ header h1 {
 
 main {
     padding-top: 120px;
-    min-height: calc(100vh - 180px);
+    min-height: calc(100vh - 240px); /* Increased to add more space before footer */
     overflow: hidden;
 }
 
@@ -89,31 +64,10 @@ main {
 #detail-view {
     display: flex;
     padding: 20px;
+    margin-bottom: 60px; /* Added space before footer */
 }
 
-#zoomed-image {
-    flex: 1;
-    text-align: center;
-}
-
-#zoomed-image img {
-    max-width: 100%;
-    max-height: 70vh;
-    border-radius: 10px;
-}
-
-#content {
-    flex: 1;
-    padding: 0 20px;
-}
-
-#title {
-    color: #8B0000;
-}
-
-#description {
-    line-height: 1.6;
-}
+/* ... (keep the existing styles for #zoomed-image, #content, #title, #description) ... */
 
 #back-button {
     background-color: #FFA500;
@@ -124,6 +78,7 @@ main {
     cursor: pointer;
     border-radius: 5px;
     margin-top: 20px;
+    margin-bottom: 40px; /* Added space after back button */
 }
 
 #back-button:hover {
@@ -142,6 +97,25 @@ footer {
 
 .hidden {
     display: none !important;
+}
+
+/* Concentric circles background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -2;
+    background: 
+        radial-gradient(circle at center, transparent 20%, #FFD700 20%, #FFD700 30%, 
+                        #FFA500 30%, #FFA500 40%, #FF8C00 40%, #FF8C00 50%, 
+                        #FF7F50 50%, #FF7F50 60%, #FF6347 60%, #FF6347 70%, 
+                        transparent 70%);
+    background-size: 200% 200%;
+    background-position: center;
+    opacity: 0.3;
 }
 
 @media (max-width: 768px) {
@@ -166,6 +140,11 @@ footer {
     #zoomed-image {
         margin-bottom: 20px;
     }
+
+    .wheel-image {
+        width: 200px; /* Slightly shorter for mobile */
+        height: 200px; /* Slightly shorter for mobile */
+    }
 }
 
 @media (max-width: 480px) {
@@ -177,5 +156,10 @@ footer {
         width: 40px;
         height: 40px;
         margin: 0 5px;
+    }
+
+    .wheel-image {
+        width: 180px; /* Even shorter for smaller mobile devices */
+        height: 180px; /* Even shorter for smaller mobile devices */
     }
 }

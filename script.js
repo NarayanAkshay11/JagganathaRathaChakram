@@ -1,37 +1,49 @@
-let characters = [];
-let currentIndex = 0;
+// script.js
 
-fetch('characters.md')
-    .then(response => response.text())
-    .then(data => {
-        characters = parseMarkdownTable(data);
-        updateCarousel();
+const imageWheel = document.getElementById('image-wheel');
+const detailView = document.getElementById('detail-view');
+const zoomedImage = document.getElementById('zoomed-image');
+const titleElement = document.getElementById('title');
+const descriptionElement = document.getElementById('description');
+const backButton = document.getElementById('back-button');
+
+// Sample data (replace with your actual data)
+const deities = [
+    { id: 1, name: 'Hanuman', image: 'images/hanuman.png', description: 'The elephant-headed god of wisdom and new beginnings.' },
+    { id: 2, name: 'Panchajanya (Shankh)', image: 'images/panchajanya.png', description: 'The divine hero of the Bhagavad Gita and avatar of Vishnu.' },
+    { id: 3, name: 'Sudharshan Chakra', image: 'images/sudharshan.png', description: 'The destroyer and transformer among the Trimurti.' },
+];
+
+// Populate the image wheel
+function populateImageWheel() {
+    deities.forEach(deity => {
+        const img = document.createElement('img');
+        img.src = deity.image;
+        img.alt = deity.name;
+        img.classList.add('wheel-image');
+        img.dataset.id = deity.id;
+        img.addEventListener('click', () => showDetail(deity.id));
+        imageWheel.appendChild(img);
     });
-
-function parseMarkdownTable(markdown) {
-    const lines = markdown.split('\n').slice(2); // Skip header rows
-    return lines.map(line => {
-        const [name, image, description] = line.split('|').slice(1, -1).map(cell => cell.trim());
-        return { name, image, description };
-    });
 }
 
-function updateCarousel() {
-    const character = characters[currentIndex];
-    document.querySelector('.character-image').style.backgroundImage = `url(${character.image})`;
-    document.querySelector('.name').textContent = character.name;
-    document.querySelector('.description').textContent = character.description;
+// Show detail view
+function showDetail(id) {
+    const deity = deities.find(d => d.id === id);
+    if (deity) {
+        zoomedImage.innerHTML = `<img src="${deity.image}" alt="${deity.name}">`;
+        titleElement.textContent = deity.name;
+        descriptionElement.textContent = deity.description;
+        imageWheel.classList.add('hidden');
+        detailView.classList.remove('hidden');
+    }
 }
 
-document.querySelector('.prev').addEventListener('click', showPreviousCharacter);
-document.querySelector('.next').addEventListener('click', showNextCharacter);
+// Back to gallery
+backButton.addEventListener('click', () => {
+    detailView.classList.add('hidden');
+    imageWheel.classList.remove('hidden');
+});
 
-function showPreviousCharacter() {
-    currentIndex = (currentIndex - 1 + characters.length) % characters.length;
-    updateCarousel();
-}
-
-function showNextCharacter() {
-    currentIndex = (currentIndex + 1) % characters.length;
-    updateCarousel();
-}
+// Initialize the page
+populateImageWheel();

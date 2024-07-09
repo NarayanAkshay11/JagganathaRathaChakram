@@ -7,7 +7,31 @@ body {
     background-attachment: fixed;
 }
 
-/* ... (keep the existing header styles) ... */
+header {
+    background-color: rgba(255, 165, 0, 0.8);
+    padding: 10px 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    color: #8B0000;
+    font-size: 2.5em;
+    flex-grow: 1;
+}
+
+.header-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 20px;
+}
 
 .sun-animation {
     position: fixed;
@@ -30,7 +54,7 @@ body {
 
 main {
     padding-top: 120px;
-    min-height: calc(100vh - 240px); /* Increased to add more space before footer */
+    min-height: calc(100vh - 240px);
     overflow: hidden;
 }
 
@@ -64,10 +88,32 @@ main {
 #detail-view {
     display: flex;
     padding: 20px;
-    margin-bottom: 60px; /* Added space before footer */
+    margin-bottom: 60px;
 }
 
-/* ... (keep the existing styles for #zoomed-image, #content, #title, #description) ... */
+#zoomed-image {
+    flex: 1;
+    text-align: center;
+}
+
+#zoomed-image img {
+    max-width: 100%;
+    max-height: 70vh;
+    border-radius: 10px;
+}
+
+#content {
+    flex: 1;
+    padding: 0 20px;
+}
+
+#title {
+    color: #8B0000;
+}
+
+#description {
+    line-height: 1.6;
+}
 
 #back-button {
     background-color: #FFA500;
@@ -78,7 +124,7 @@ main {
     cursor: pointer;
     border-radius: 5px;
     margin-top: 20px;
-    margin-bottom: 40px; /* Added space after back button */
+    margin-bottom: 40px;
 }
 
 #back-button:hover {
@@ -142,8 +188,8 @@ body::before {
     }
 
     .wheel-image {
-        width: 200px; /* Slightly shorter for mobile */
-        height: 200px; /* Slightly shorter for mobile */
+        width: 200px;
+        height: 200px;
     }
 }
 
@@ -159,7 +205,7 @@ body::before {
     }
 
     .wheel-image {
-        width: 180px; /* Even shorter for smaller mobile devices */
-        height: 180px; /* Even shorter for smaller mobile devices */
+        width: 180px;
+        height: 180px;
     }
 }

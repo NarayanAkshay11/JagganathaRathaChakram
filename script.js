@@ -1,5 +1,3 @@
-// script.js
-
 const imageWheel = document.getElementById('image-wheel');
 const detailView = document.getElementById('detail-view');
 const zoomedImage = document.getElementById('zoomed-image');
@@ -51,27 +49,25 @@ function parseMarkdown(markdown) {
 // Populate the image wheel
 async function populateImageWheel() {
     const deities = await fetchData();
-    const wheelWidth = deities.length * 300; // 250px image width + 50px margin
+    const totalWidth = window.innerWidth;
+    const imageWidth = 300; // 250px image width + 50px total margin
+    const visibleImages = Math.max(2, Math.floor(totalWidth / imageWidth));
+    const repeats = Math.ceil(visibleImages / deities.length) + 1;
+
+    for (let i = 0; i < repeats; i++) {
+        deities.forEach(deity => {
+            const img = document.createElement('img');
+            img.src = deity.image;
+            img.alt = deity.name;
+            img.classList.add('wheel-image');
+            img.dataset.id = deity.id;
+            img.addEventListener('click', () => showDetail(deity.id));
+            imageWheel.appendChild(img);
+        });
+    }
+
+    const wheelWidth = deities.length * imageWidth * repeats;
     imageWheel.style.width = `${wheelWidth}px`;
-
-    deities.forEach(deity => {
-        const img = document.createElement('img');
-        img.src = deity.image;
-        img.alt = deity.name;
-        img.classList.add('wheel-image');
-        img.dataset.id = deity.id;
-        img.addEventListener('click', () => showDetail(deity.id));
-        imageWheel.appendChild(img);
-    });
-
-    // Clone images for continuous loop
-    const clonedImages = imageWheel.cloneNode(true);
-    clonedImages.childNodes.forEach(node => {
-        if (node.nodeType === Node.ELEMENT_NODE) {
-            node.addEventListener('click', () => showDetail(node.dataset.id));
-        }
-    });
-    imageWheel.appendChild(clonedImages);
 }
 
 // Show detail view
@@ -93,16 +89,5 @@ backButton.addEventListener('click', () => {
     imageWheel.classList.remove('hidden');
 });
 
-// Add chariot and horses to the sun animation
-function addChariotAndHorses() {
-    const chariot = document.querySelector('.chariot');
-    for (let i = 0; i < 7; i++) {
-        const horse = document.createElement('div');
-        horse.classList.add('horse');
-        chariot.appendChild(horse);
-    }
-}
-
 // Initialize the page
 populateImageWheel();
-addChariotAndHorses();

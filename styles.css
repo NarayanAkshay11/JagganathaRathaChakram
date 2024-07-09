@@ -10,27 +10,28 @@ body {
 
 header {
     background-color: rgba(255, 165, 0, 0.8);
-    padding: 20px 0;
+    padding: 10px 0;
     text-align: center;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 header h1 {
     margin: 0;
-    display: inline-block;
-    vertical-align: middle;
     color: #8B0000;
     font-size: 2.5em;
+    flex-grow: 1;
 }
 
 .header-icon {
     width: 80px;
     height: 80px;
-    margin: 0 30px;
-    vertical-align: middle;
+    margin: 0 20px;
 }
 
 .sun-animation {
@@ -47,70 +48,23 @@ header h1 {
     animation: pulse 2s infinite alternate;
 }
 
-.chariot {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100px;
-    height: 60px;
-    background-color: #8B4513;
-    border-radius: 10px 10px 0 0;
-}
-
-.chariot::before {
-    content: '';
-    position: absolute;
-    bottom: -20px;
-    left: 10px;
-    width: 80px;
-    height: 40px;
-    border-radius: 50%;
-    border: 5px solid #8B4513;
-    border-top: none;
-}
-
-.chariot::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: -10px;
-    width: 120px;
-    height: 2px;
-    background-color: #8B4513;
-}
-
-.horse {
-    position: absolute;
-    bottom: -15px;
-    width: 10px;
-    height: 20px;
-    background-color: #FFFFFF;
-}
-
-.horse:nth-child(1) { left: 5px; }
-.horse:nth-child(2) { left: 20px; }
-.horse:nth-child(3) { left: 35px; }
-.horse:nth-child(4) { left: 50px; }
-.horse:nth-child(5) { left: 65px; }
-.horse:nth-child(6) { left: 80px; }
-.horse:nth-child(7) { left: 95px; }
-
 @keyframes pulse {
     from { transform: translate(-50%, -50%) scale(1); }
     to { transform: translate(-50%, -50%) scale(1.1); }
 }
 
 main {
-    padding-top: 140px;
-    min-height: calc(100vh - 200px);
+    padding-top: 120px;
+    min-height: calc(100vh - 180px);
     overflow: hidden;
 }
 
 #image-wheel {
     display: flex;
-    padding: 20px 0;
-    animation: moveWheel 60s linear infinite;
+    justify-content: space-around;
+    align-items: center;
+    height: 300px;
+    animation: moveWheel 30s linear infinite;
 }
 
 @keyframes moveWheel {
@@ -122,7 +76,7 @@ main {
     flex: 0 0 auto;
     width: 250px;
     height: 250px;
-    margin-right: 50px;
+    margin: 0 25px;
     border-radius: 10px;
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -191,6 +145,16 @@ footer {
 }
 
 @media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .header-icon {
+        width: 50px;
+        height: 50px;
+        margin: 0 10px;
+    }
+
     #detail-view {
         flex-direction: column;
     }
@@ -201,5 +165,17 @@ footer {
 
     #zoomed-image {
         margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    .header-icon {
+        width: 40px;
+        height: 40px;
+        margin: 0 5px;
     }
 }

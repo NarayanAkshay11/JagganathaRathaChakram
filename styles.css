@@ -113,22 +113,26 @@ main {
 
 #description {
     line-height: 1.6;
+    font-weight: bold;
 }
 
 #back-button {
-    background-color: #FFA500;
-    color: white;
-    border: none;
+    background-color: white;
+    color: #FFA500;
+    border: 2px solid #FFA500;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
     margin-top: 20px;
     margin-bottom: 40px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 #back-button:hover {
-    background-color: #FF8C00;
+    background-color: #FFA500;
+    color: white;
 }
 
 footer {

@@ -3,38 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JagannathaRathaChakram</title>
+    <title>Bhagavaan Chakram</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <img src="images/sudharshan.png" alt="Header Left" class="header-image">
-        <h1>Bhagavaan Chakram</h1>
-        <img src="images/panchajanya.png" alt="Header Right" class="header-image">
+        <img src="images/sudharshan.png" alt="Left Icon" class="header-icon">
+        <h1>Chakram</h1>
+        <img src="images/panchajanya.png" alt="Right Icon" class="header-icon">
     </header>
-    
-    <div class="sun-container">
-        <div class="sun"></div>
-        <div class="sun-rays"></div>
-    </div>
-    
-    <div class="carousel">
-        <div class="character-image"></div>
-        <div class="character-info">
-            <h1 class="name"></h1>
-            <p class="description"></p>
+
+    <div class="sun-animation"></div>
+
+    <main>
+        <div id="image-wheel"></div>
+        <div id="detail-view" class="hidden">
+            <div id="zoomed-image"></div>
+            <div id="content">
+                <h2 id="title"></h2>
+                <p id="description"></p>
+                <button id="back-button">Back to Gallery</button>
+            </div>
         </div>
-        <div class="navigation">
-            <button class="prev">&larr;</button>
-            <button class="next">&rarr;</button>
-        </div>
-    </div>
-    
+    </main>
+
     <footer>
-        <p>&copy; 2024 Akshay Narayanan. All rights reserved.</p>
+        <p>&copy; 2024 Akshay Narayanan Balajee Viswanath</p>
     </footer>
-    
+
     <script src="script.js"></script>
 </body>
 </html>
